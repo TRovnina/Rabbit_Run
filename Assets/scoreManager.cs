@@ -22,8 +22,8 @@ public class scoreManager : MonoBehaviour
     }
 
 
-    public static void incrementScore()
+    public static void incrementScore(int val)
     {
-        ++score;
+        score += val;
     }
 }

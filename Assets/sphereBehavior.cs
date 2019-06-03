@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.XR.WSA.Sharing;
 
@@ -25,7 +26,7 @@ public class sphereBehavior : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))//MouseButtonDown(0))
         {
             ChangeDirection();
-            scoreManager.incrementScore();
+            scoreManager.incrementScore(1);
         }
 
         if (isMovingRight)
@@ -37,6 +38,16 @@ public class sphereBehavior : MonoBehaviour
             rb.velocity = new Vector3(0f, 0f, speed);
         }
 
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Diamond"))
+        {
+            Console.WriteLine("diamond");
+            Destroy(other.gameObject);
+            scoreManager.incrementScore(2);
+        }
     }
 
 }
