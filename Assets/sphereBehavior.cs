@@ -7,7 +7,7 @@ public class sphereBehavior : MonoBehaviour
 
     private Rigidbody rb; // Объявление новой переменной Rigidbody
     private bool isMovingRight = true; // переменная, отражающая условное направление объекта
-    private float speed = 3f; // Скорость движения объекта
+    private float speed = 5f; // Скорость движения объекта
 
     void Start()
     {
@@ -25,6 +25,7 @@ public class sphereBehavior : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))//MouseButtonDown(0))
         {
             ChangeDirection();
+            scoreManager.incrementScore();
         }
 
         if (isMovingRight)

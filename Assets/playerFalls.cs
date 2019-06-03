@@ -20,10 +20,13 @@ public class playerFalls : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 5f) && hit.transform.gameObject.tag == "Ground")
         {
             rb.useGravity = false;
+            rb.tag = "Untagged";
         }
         else
         {
             rb.useGravity = true;
+            rb.velocity = new Vector3(0f, -10f, 0f);
+            rb.tag = "Falling";
         }
 
     }

@@ -14,7 +14,8 @@ public class cameraFollow : MonoBehaviour
 
     void Update()
     {
-        transform.position = player.transform.position + offset;
+        if(player.tag != "Falling")
+            transform.position = player.transform.position + offset;
     }
 
 }

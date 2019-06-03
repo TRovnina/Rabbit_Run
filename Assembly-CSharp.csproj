@@ -56,8 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\cameraFollow.cs" />
+    <Compile Include="Assets\collisionDiamond.cs" />
     <Compile Include="Assets\playerFalls.cs" />
     <Compile Include="Assets\roadBehavior.cs" />
+    <Compile Include="Assets\scoreManager.cs" />
     <Compile Include="Assets\sphereBehavior.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/Unity/Projects/ZigZag/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
