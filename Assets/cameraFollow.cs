@@ -14,7 +14,7 @@ public class cameraFollow : MonoBehaviour
 
     void Update()
     {
-        if(player.tag != "Falling")
+        if (!Manager.Obj.GameOver)
             transform.position = player.transform.position + offset;
     }
 

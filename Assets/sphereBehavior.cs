@@ -6,37 +6,41 @@ using UnityEngine.XR.WSA.Sharing;
 public class sphereBehavior : MonoBehaviour
 {
 
-    private Rigidbody rb; // Объявление новой переменной Rigidbody
-    private bool isMovingRight = true; // переменная, отражающая условное направление объекта
+    private Rigidbody _rb; // Объявление новой переменной Rigidbody
+    private bool _isMovingRight = true; // переменная, отражающая условное направление объекта
     private float speed = 5f; // Скорость движения объекта
+
+    private bool _overOnce;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); // Получение доступа к Rigidbody
+        _rb = GetComponent<Rigidbody>(); // Получение доступа к Rigidbody
+        _overOnce = false;
     }
 
     void ChangeDirection()
     {
-        isMovingRight = !isMovingRight;
+        _isMovingRight = !_isMovingRight;
     }
 
     void Update()
     {
+        if (Manager.Obj.GameOver && !_overOnce)
+        {
+            Manager.Obj.Finish();
+            _overOnce = true;
+            return;
+        }
+           
 
         if (Input.GetKeyDown(KeyCode.Space))//MouseButtonDown(0))
         {
             ChangeDirection();
-            scoreManager.incrementScore(1);
+            scoreManager.Obj.IncrementScore(1);
         }
 
-        if (isMovingRight)
-        {
-            rb.velocity = new Vector3(speed, 0f, 0f);
-        }
-        else
-        {
-            rb.velocity = new Vector3(0f, 0f, speed);
-        }
+        _rb.velocity = _isMovingRight ? new Vector3(speed, 0f, 0f) 
+            : new Vector3(0f, 0f, speed);
 
     }
 
@@ -44,9 +48,8 @@ public class sphereBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Diamond"))
         {
-            Console.WriteLine("diamond");
             Destroy(other.gameObject);
-            scoreManager.incrementScore(2);
+            scoreManager.Obj.IncrementScore(2);
         }
     }
 

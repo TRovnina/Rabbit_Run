@@ -5,25 +5,46 @@ using UnityEngine.UI;
 
 public class scoreManager : MonoBehaviour
 {
-    public static int score;
-    public Text txt;
+    public static scoreManager Obj;
+    private int _score;
+    private Text _txt;
 
     // Start is called before the first frame update
     void Start()
     {
-        txt = GetComponent<Text>();
-        txt.text = "" + score;
+        if (Obj == null)
+            Obj = this;
+
+        _txt = GetComponent<Text>();
+        _txt.text = "0";
     }
 
     // Update is called once per frame
     void Update()
     {
-        txt.text = "" + score;
+        if (!Manager.Obj.GameOver)
+            _txt.text = "" + _score;
+        else
+            enabled = false;
     }
 
 
-    public static void incrementScore(int val)
+    public void IncrementScore(int val)
     {
-        score += val;
+        if(!Manager.Obj.GameOver)
+            _score += val;
+    }
+
+    public void StopScore()
+    {
+        PlayerPrefs.SetInt("score", _score);
+
+        if (PlayerPrefs.HasKey("highScore"))
+            if (_score > PlayerPrefs.GetInt("highScore"))
+                PlayerPrefs.SetInt("highScore", _score);
+        else
+            PlayerPrefs.SetInt("highScore", _score);
+
+        _txt.text = "";
     }
 }
