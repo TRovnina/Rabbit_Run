@@ -26,7 +26,7 @@ public class Manager : MonoBehaviour
 
     public void Finish()
     {
-        UIManager.Obj.SetGameOverPanel();
         scoreManager.Obj.StopScore();
+        UIManager.Obj.SetGameOverPanel();
     }
 }

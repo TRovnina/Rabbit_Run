@@ -40,8 +40,10 @@ public class scoreManager : MonoBehaviour
         PlayerPrefs.SetInt("score", _score);
 
         if (PlayerPrefs.HasKey("highScore"))
+        {
             if (_score > PlayerPrefs.GetInt("highScore"))
                 PlayerPrefs.SetInt("highScore", _score);
+        }
         else
             PlayerPrefs.SetInt("highScore", _score);
 

@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Obj;
     public GameObject GameOverPanel;
+    public GameObject Score;
+    public GameObject HighScore;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,8 @@ public class UIManager : MonoBehaviour
 
     public void SetGameOverPanel()
     {
+        Score.GetComponent<Text>().text = "Score: " + PlayerPrefs.GetInt("score");
+        HighScore.GetComponent<Text>().text = "High score: " + PlayerPrefs.GetInt("highScore");
         GameOverPanel.SetActive(true);
     }
 }
