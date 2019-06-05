@@ -9,6 +9,7 @@ public class sphereBehavior : MonoBehaviour
     private Rigidbody _rb; // Объявление новой переменной Rigidbody
     private bool _isMovingRight = true; // переменная, отражающая условное направление объекта
     private float speed = 5f; // Скорость движения объекта
+    private float rotate = -90f;
 
     private bool _overOnce;
 
@@ -21,6 +22,8 @@ public class sphereBehavior : MonoBehaviour
     void ChangeDirection()
     {
         _isMovingRight = !_isMovingRight;
+        _rb.transform.Rotate(0f, rotate, 0f);
+        rotate = -rotate;
     }
 
     void Update()
@@ -33,14 +36,14 @@ public class sphereBehavior : MonoBehaviour
         }
            
 
-        if (Input.GetKeyDown(KeyCode.Space))//MouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             ChangeDirection();
             scoreManager.Obj.IncrementScore(1);
         }
 
-        _rb.velocity = _isMovingRight ? new Vector3(speed, 0f, 0f) 
-            : new Vector3(0f, 0f, speed);
+        //_rb.velocity = _isMovingRight ? new Vector3(speed, 0f, 0f) 
+        //    : new Vector3(0f, 0f, speed);
 
     }
 
