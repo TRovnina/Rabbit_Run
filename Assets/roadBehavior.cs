@@ -5,7 +5,7 @@ public class roadBehavior : MonoBehaviour
 {
     public GameObject Diamond;
     public GameObject Road; // Префаб участка пути
-    private Vector3 lastpos = new Vector3(0f, 0f, 0f); // Координаты установленного префаба
+    private Vector3 lastpos = new Vector3(6.5f, 0f, 0f); // Координаты установленного префаба
 
     void Start()
     {
