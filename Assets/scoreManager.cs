@@ -16,7 +16,12 @@ public class scoreManager : MonoBehaviour
             Obj = this;
 
         _txt = GetComponent<Text>();
-        _txt.text = "0";
+
+        if (PlayerPrefs.HasKey("save_score"))
+            _score = PlayerPrefs.GetInt("save_score");
+        else
+            _score = 0;
+   
     }
 
     // Update is called once per frame

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
@@ -28,12 +29,18 @@ public class Manager : MonoBehaviour
 
     public void Finish()
     {
+        LifeManager.Obj.UpdateLives(-1);
+        PlayerPrefs.SetInt("save_score", 0);
+        PlayerPrefs.SetInt("save_lives", 1);
         scoreManager.Obj.StopScore();
         UIManager.Obj.SetGameOverPanel();
     }
 
-    internal void Resurection()
+    public void Resurection()
     {
+        LifeManager.Obj.UpdateLives(-1);
+        PlayerPrefs.SetInt("save_score", scoreManager.Obj.GetScore());
+        PlayerPrefs.SetInt("save_lives", LifeManager.Obj.GetLives());
         SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
     }
 }

@@ -16,7 +16,16 @@ public class LifeManager : MonoBehaviour
             Obj = this;
 
         _txt = GetComponent<Text>();
-        _txt.text = "x 1";
+
+        if (PlayerPrefs.HasKey("save_lives"))
+            _lives = PlayerPrefs.GetInt("save_lives");
+        else
+            _lives = 1;
+
+        if (_lives < 1)
+            _lives = 1;
+
+        _txt.text = "x " + _lives;
     }
 
     // Update is called once per frame

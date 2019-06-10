@@ -10,7 +10,6 @@ public class roadBehavior : MonoBehaviour
 
     void Start()
     {
-        //Heart.GetComponent(Renderer).
         for (int i = 0; i < 10; i++)
         {
             GameObject platform = Instantiate(Road) as GameObject;
@@ -46,15 +45,14 @@ public class roadBehavior : MonoBehaviour
         if (rand < 1)
         {
             GameObject diamond = Instantiate(Diamond) as GameObject;
-            diamond.transform.position = platform.transform.position + new Vector3(0f, 4f, 0f);
+            diamond.transform.position = platform.transform.position + new Vector3(0f, 3.5f, 0f);
             return;
         }
 
-        if (scoreManager.Obj.GetScore() % 3 == 0)
+        if (rand == 2 && scoreManager.Obj.GetScore() != 0 && scoreManager.Obj.GetScore() % 5 == 0)
         {
             GameObject heart = Instantiate(Heart) as GameObject;
-            heart.transform.position = platform.transform.position + new Vector3(0f, 4f, 0f);
-            return;
+            heart.transform.position = platform.transform.position + new Vector3(0f, 3.5f, 0f);
         }
     }
 
