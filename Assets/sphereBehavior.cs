@@ -32,7 +32,7 @@ public class sphereBehavior : MonoBehaviour
 
     void Update()
     {
-        if (Manager.Obj.GameOver && !_overOnce)
+        if (Manager.Obj.GameOver && !_overOnce) // && LifeManager.Obj.GetLives() == 0
         {
             Manager.Obj.Finish();
             _overOnce = true;
@@ -57,6 +57,12 @@ public class sphereBehavior : MonoBehaviour
         {
             Destroy(other.gameObject);
             scoreManager.Obj.IncrementScore(2);
+        }
+
+        if (other.gameObject.CompareTag("Heart"))
+        {
+            Destroy(other.gameObject);
+            LifeManager.Obj.UpdateLives(1);
         }
     }
 

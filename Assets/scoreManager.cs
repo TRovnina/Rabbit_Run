@@ -28,6 +28,10 @@ public class scoreManager : MonoBehaviour
             enabled = false;
     }
 
+    public int GetScore()
+    {
+        return _score;
+    }
 
     public void IncrementScore(int val)
     {

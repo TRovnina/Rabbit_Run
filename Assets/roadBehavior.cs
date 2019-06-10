@@ -3,13 +3,14 @@ using System.Collections;
 
 public class roadBehavior : MonoBehaviour
 {
+    public GameObject Heart;
     public GameObject Diamond;
     public GameObject Road; // Префаб участка пути
     private Vector3 lastpos = new Vector3(6.5f, 0f, 0f); // Координаты установленного префаба
 
     void Start()
     {
-
+        //Heart.GetComponent(Renderer).
         for (int i = 0; i < 10; i++)
         {
             GameObject platform = Instantiate(Road) as GameObject;
@@ -46,6 +47,14 @@ public class roadBehavior : MonoBehaviour
         {
             GameObject diamond = Instantiate(Diamond) as GameObject;
             diamond.transform.position = platform.transform.position + new Vector3(0f, 4f, 0f);
+            return;
+        }
+
+        if (scoreManager.Obj.GetScore() % 3 == 0)
+        {
+            GameObject heart = Instantiate(Heart) as GameObject;
+            heart.transform.position = platform.transform.position + new Vector3(0f, 4f, 0f);
+            return;
         }
     }
 

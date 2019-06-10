@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\HelpPanelScript.cs" />
+    <Compile Include="Assets\LifeManager.cs" />
     <Compile Include="Assets\Manager.cs" />
     <Compile Include="Assets\MenuBehaviourScript.cs" />
     <Compile Include="Assets\Rabbits\Demo\Scripts\AnimatorParamatersChange.cs" />
