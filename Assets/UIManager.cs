@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -10,6 +8,8 @@ public class UIManager : MonoBehaviour
     public GameObject GameOverPanel;
     public GameObject Score;
     public GameObject HighScore;
+    public GameObject Restart;
+    public GameObject Menu;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,19 @@ public class UIManager : MonoBehaviour
             Obj = this;
 
         GameOverPanel.SetActive(false);
+        Restart.GetComponent<Button>().onClick.AddListener(RestartGame);
+        Menu.GetComponent<Button>().onClick.AddListener(OpenMenuScene);
+    }
+
+    void RestartGame()
+    {
+        GameOverPanel.SetActive(false);
+        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+    }
+
+    void OpenMenuScene()
+    {
+        SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
     }
 
     // Update is called once per frame

@@ -1,22 +1,26 @@
-﻿using System;
-using UnityEngine;
-using System.Collections;
-using UnityEngine.XR.WSA.Sharing;
+﻿using UnityEngine;
 
 public class sphereBehavior : MonoBehaviour
 {
-
+    public static sphereBehavior Obj;
     private Rigidbody _rb; // Объявление новой переменной Rigidbody
     private bool _isMovingRight = true; // переменная, отражающая условное направление объекта
     private float speed = 5f; // Скорость движения объекта
     private float rotate = -90f;
+    private Animator _animator;
 
     private bool _overOnce;
 
     void Start()
     {
+        _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>(); // Получение доступа к Rigidbody
         _overOnce = false;
+    }
+
+    public Animator getAnimation()
+    {
+        return _animator;
     }
 
     void ChangeDirection()
@@ -36,7 +40,7 @@ public class sphereBehavior : MonoBehaviour
         }
            
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !Manager.Obj.GameOver)
         {
             ChangeDirection();
             scoreManager.Obj.IncrementScore(1);

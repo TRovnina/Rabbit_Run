@@ -55,7 +55,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\HelpPanelScript.cs" />
     <Compile Include="Assets\Manager.cs" />
+    <Compile Include="Assets\MenuBehaviourScript.cs" />
     <Compile Include="Assets\Rabbits\Demo\Scripts\AnimatorParamatersChange.cs" />
     <Compile Include="Assets\UIManager.cs" />
     <Compile Include="Assets\cameraFollow.cs" />
