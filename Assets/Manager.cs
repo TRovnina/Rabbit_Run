@@ -29,7 +29,7 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ScoreManager.Obj.GetScore() > _scoreCounter)
+        if (scoreManager.Obj.GetScore() > _scoreCounter)
         {
             Background.GetComponent<Renderer>().material.mainTexture =
                 Resources.Load(_materials[(++_materialCounter) % _materials.Length]) as Texture;
@@ -45,14 +45,14 @@ public class Manager : MonoBehaviour
     {
         PlayerPrefs.SetInt("save_score", 0);
         PlayerPrefs.SetInt("save_lives", 1);
-        ScoreManager.Obj.StopScore();
+        scoreManager.Obj.StopScore();
         UIManager.Obj.SetGameOverPanel();
     }
 
     // save current game and resurrect Player
     public void Resurrection()
     {
-        PlayerPrefs.SetInt("save_score", ScoreManager.Obj.GetScore());
+        PlayerPrefs.SetInt("save_score", scoreManager.Obj.GetScore());
         PlayerPrefs.SetInt("save_lives", LifeManager.Obj.GetLives());
         SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
     }

@@ -3,10 +3,10 @@
 /**
  * Check for Player falling from the road
  */
-public class PlayerFalls : MonoBehaviour
+public class playerFalls : MonoBehaviour
 {
     // class object to avoid static methods
-    public static PlayerFalls Obj;
+    public static playerFalls Obj;
     //Player
     private Rigidbody _rb;
     private Animator _animator;
