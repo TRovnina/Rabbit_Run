@@ -21,7 +21,6 @@ public class scoreManager : MonoBehaviour
             _score = PlayerPrefs.GetInt("save_score");
         else
             _score = 0;
-   
     }
 
     // Update is called once per frame

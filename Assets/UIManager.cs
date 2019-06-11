@@ -8,8 +8,11 @@ public class UIManager : MonoBehaviour
     public GameObject GameOverPanel;
     public GameObject Score;
     public GameObject HighScore;
-    public GameObject Restart;
+    public GameObject Restart;  
     public GameObject Menu;
+    public GameObject SaveMePanel;
+    public GameObject Yep;
+    public GameObject No;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +21,28 @@ public class UIManager : MonoBehaviour
             Obj = this;
 
         GameOverPanel.SetActive(false);
+        SaveMePanel.SetActive(false);
         Restart.GetComponent<Button>().onClick.AddListener(RestartGame);
         Menu.GetComponent<Button>().onClick.AddListener(OpenMenuScene);
+        Yep.GetComponent<Button>().onClick.AddListener(SaveGame);
+        No.GetComponent<Button>().onClick.AddListener(EndGame);
     }
 
     void RestartGame()
     {
         GameOverPanel.SetActive(false);
         SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+    }
+
+    void SaveGame()
+    {
+        Manager.Obj.Resurection();
+    }
+
+    void EndGame()
+    {
+        SaveMePanel.SetActive(false);
+        Manager.Obj.Finish();
     }
 
     void OpenMenuScene()
@@ -43,5 +60,10 @@ public class UIManager : MonoBehaviour
         Score.GetComponent<Text>().text = "Score: " + PlayerPrefs.GetInt("score");
         HighScore.GetComponent<Text>().text = "High score: " + PlayerPrefs.GetInt("highScore");
         GameOverPanel.SetActive(true);
+    }
+
+    public void ResurectPanel()
+    {
+        SaveMePanel.SetActive(true);
     }
 }

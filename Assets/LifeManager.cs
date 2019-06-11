@@ -22,9 +22,6 @@ public class LifeManager : MonoBehaviour
         else
             _lives = 1;
 
-        if (_lives < 1)
-            _lives = 1;
-
         _txt.text = "x " + _lives;
     }
 

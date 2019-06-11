@@ -29,7 +29,7 @@ public class playerFalls : MonoBehaviour
             _animator.enabled = false;
 
             if (LifeManager.Obj.GetLives() > 1)
-                Manager.Obj.Resurection();
+                UIManager.Obj.ResurectPanel();
         }
     }
 
