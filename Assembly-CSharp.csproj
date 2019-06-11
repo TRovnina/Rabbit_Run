@@ -55,17 +55,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AudioHelper.cs" />
+    <Compile Include="Assets\AudioManager.cs" />
     <Compile Include="Assets\HelpPanelScript.cs" />
     <Compile Include="Assets\LifeManager.cs" />
     <Compile Include="Assets\Manager.cs" />
     <Compile Include="Assets\MenuBehaviourScript.cs" />
+    <Compile Include="Assets\PlayerBehavior.cs" />
     <Compile Include="Assets\Rabbits\Demo\Scripts\AnimatorParamatersChange.cs" />
+    <Compile Include="Assets\RoadBehavior.cs" />
+    <Compile Include="Assets\ScoreManager.cs" />
     <Compile Include="Assets\UIManager.cs" />
     <Compile Include="Assets\cameraFollow.cs" />
     <Compile Include="Assets\playerFalls.cs" />
-    <Compile Include="Assets\roadBehavior.cs" />
-    <Compile Include="Assets\scoreManager.cs" />
-    <Compile Include="Assets\sphereBehavior.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/Unity/Projects/ZigZagRabbit/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -29,17 +29,15 @@ public class Manager : MonoBehaviour
 
     public void Finish()
     {
-        LifeManager.Obj.UpdateLives(-1);
         PlayerPrefs.SetInt("save_score", 0);
         PlayerPrefs.SetInt("save_lives", 1);
-        scoreManager.Obj.StopScore();
+        ScoreManager.Obj.StopScore();
         UIManager.Obj.SetGameOverPanel();
     }
 
     public void Resurection()
     {
-        LifeManager.Obj.UpdateLives(-1);
-        PlayerPrefs.SetInt("save_score", scoreManager.Obj.GetScore());
+        PlayerPrefs.SetInt("save_score", ScoreManager.Obj.GetScore());
         PlayerPrefs.SetInt("save_lives", LifeManager.Obj.GetLives());
         SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
     }
