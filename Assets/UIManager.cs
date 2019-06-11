@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
     // continue play game
     void SaveGame()
     {
-        Manager.Obj.Resurection();
+        Manager.Obj.Resurrection();
     }
 
     // end current game
@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
     }
 
     // show panel for saving current game
-    public void ResurectPanel()
+    public void ResurrectPanel()
     {
         SaveMePanel.SetActive(true);
     }

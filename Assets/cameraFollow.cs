@@ -1,21 +1,23 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class cameraFollow : MonoBehaviour
+public class CameraFollow : MonoBehaviour
 {
-
-    public GameObject player;
-    public Vector3 offset;
+    // player
+    public GameObject Player;
+    // camera position
+    public Vector3 Offset;
 
     void Start()
     {
-        offset = transform.position - player.transform.position;
+        //initialize
+        Offset = transform.position - Player.transform.position;
     }
 
     void Update()
     {
+        // update camera position
         if (!Manager.Obj.GameOver)
-            transform.position = player.transform.position + offset;
+            transform.position = Player.transform.position + Offset;
     }
 
 }

@@ -66,8 +66,8 @@
     <Compile Include="Assets\RoadBehavior.cs" />
     <Compile Include="Assets\ScoreManager.cs" />
     <Compile Include="Assets\UIManager.cs" />
-    <Compile Include="Assets\cameraFollow.cs" />
-    <Compile Include="Assets\playerFalls.cs" />
+    <Compile Include="Assets\CameraFollow.cs" />
+    <Compile Include="Assets\PlayerFalls.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/Unity/Projects/ZigZagRabbit/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -1,23 +1,23 @@
 ﻿using UnityEngine;
 
 /**
- * Controls behavior of the player. Change directions and check for collisions
+ * Controls behavior of the Player. Change directions and check for collisions
  */
 public class PlayerBehavior : MonoBehaviour
 {
     // class object to avoid static methods
     public static PlayerBehavior Obj;
-    // player
+    // Player
     private Rigidbody _rb;
     // variable reflecting the conditional direction of the object
     private bool _isMovingRight = true;
     // variable reflecting the rotation of the object
     private float _rotate = -90f;
-    // player animation
+    // Player animation
     private Animator _animator;
     // variable for ending game
     private bool _overOnce;
-    // player sounds
+    // Player sounds
     private AudioSource _musicSource;
 
     void Start()
@@ -29,7 +29,7 @@ public class PlayerBehavior : MonoBehaviour
         _musicSource = GetComponent<AudioSource>();
     }
 
-    //change player direction and rotation
+    //change Player direction and rotation
     void ChangeDirection()
     {
         _isMovingRight = !_isMovingRight;
@@ -39,20 +39,20 @@ public class PlayerBehavior : MonoBehaviour
 
     void Update()
     {
-        //stop player if game is over
+        //stop Player if game is over
         if (Manager.Obj.GameOver && !_overOnce)
         {
             LifeManager.Obj.UpdateLives(-1);
             _overOnce = true;
 
-            //if player has no lives end game
+            //if Player has no lives end game
             if(LifeManager.Obj.GetLives() == 0)
                 Manager.Obj.Finish();
            
             return;
         }
            
-        //control direction of player
+        //control direction of Player
         if (Input.GetKeyDown(KeyCode.Space) && !Manager.Obj.GameOver)
         {
             ChangeDirection();
