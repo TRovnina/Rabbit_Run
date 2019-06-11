@@ -3,10 +3,10 @@
 /**
  * Check for Player falling from the road
  */
-public class playerFalls : MonoBehaviour
+public class PlayerFalls : MonoBehaviour
 {
     // class object to avoid static methods
-    public static playerFalls Obj;
+    public static PlayerFalls Obj;
     //Player
     private Rigidbody _rb;
     private Animator _animator;
@@ -22,6 +22,8 @@ public class playerFalls : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
+    private bool _resurect = true;
+
     void Update()
     {
         // check for the ground
@@ -35,8 +37,12 @@ public class playerFalls : MonoBehaviour
             _animator.enabled = false;
 
             // save Player
-            if (LifeManager.Obj.GetLives() > 1)
+            if (LifeManager.Obj.GetLives() > 1 && _resurect)
+            {
                 UIManager.Obj.ResurrectPanel();
+                _resurect = false;
+            }
+                
         }
     }
 

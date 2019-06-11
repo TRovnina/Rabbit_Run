@@ -3,7 +3,7 @@
 /**
  * Creates parts of road, diamonds and hearts
  */
-public class roadBehavior : MonoBehaviour
+public class RoadBehavior : MonoBehaviour
 {
     public GameObject Heart;
     public GameObject Diamond;
@@ -57,7 +57,7 @@ public class roadBehavior : MonoBehaviour
         }
 
         // create hearts
-        if (rand == 2 && scoreManager.Obj.GetScore() != 0 && scoreManager.Obj.GetScore() % 5 == 0)
+        if (rand == 2 && ScoreManager.Obj.GetScore() != 0 && ScoreManager.Obj.GetScore() % 5 == 0)
         {
             GameObject heart = Instantiate(Heart) as GameObject;
             heart.transform.position = platform.transform.position + new Vector3(0f, 3.5f, 0f);

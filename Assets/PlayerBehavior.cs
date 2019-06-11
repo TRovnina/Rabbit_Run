@@ -56,7 +56,7 @@ public class PlayerBehavior : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !Manager.Obj.GameOver)
         {
             ChangeDirection();
-            scoreManager.Obj.IncrementScore(1);
+            ScoreManager.Obj.IncrementScore(1);
         }
     }
 
@@ -69,7 +69,7 @@ public class PlayerBehavior : MonoBehaviour
             Destroy(other.gameObject);
             if (AudioHelper.SoundsOn)
                 _musicSource.Play();
-            scoreManager.Obj.IncrementScore(2);
+            ScoreManager.Obj.IncrementScore(2);
         }
         // collision with heart
         else if (other.gameObject.CompareTag("Heart"))

@@ -4,10 +4,10 @@ using UnityEngine.UI;
 /**
  * Controls score
  */
-public class scoreManager : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
     // class object to avoid static methods
-    public static scoreManager Obj;
+    public static ScoreManager Obj;
     // variable for counting points
     private int _score;
     // variable for showing score

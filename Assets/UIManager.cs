@@ -73,6 +73,7 @@ public class UIManager : MonoBehaviour
     {
         Score.GetComponent<Text>().text = "Score: " + PlayerPrefs.GetInt("score");
         HighScore.GetComponent<Text>().text = "High score: " + PlayerPrefs.GetInt("highScore");
+        SaveMePanel.SetActive(false);
         GameOverPanel.SetActive(true);
     }
 
