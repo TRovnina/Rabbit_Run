@@ -22,6 +22,9 @@ public class PlayerBehavior : MonoBehaviour
 
     void Start()
     {
+        if (Obj == null)
+            Obj = this;
+
         //initialize variables
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
@@ -79,6 +82,17 @@ public class PlayerBehavior : MonoBehaviour
                 _musicSource.Play();
             LifeManager.Obj.UpdateLives(1);
         }
+    }
+
+
+    public void RunFaster()
+    {
+        _animator.speed += 0.05f;
+    }
+
+    public void RunSlower()
+    {
+        _animator.speed -= 0.05f;
     }
 
 }
