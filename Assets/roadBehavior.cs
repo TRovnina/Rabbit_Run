@@ -56,8 +56,9 @@ public class RoadBehavior : MonoBehaviour
             return;
         }
 
+        rand = Random.Range(0, 6);
         // create hearts
-        if (rand == 2 && ScoreManager.Obj.GetScore() != 0 && ScoreManager.Obj.GetScore() % 5 == 0)
+        if (rand < 1 && ScoreManager.Obj.GetScore() % 50 > 40)
         {
             GameObject heart = Instantiate(Heart) as GameObject;
             heart.transform.position = platform.transform.position + new Vector3(0f, 3.5f, 0f);
